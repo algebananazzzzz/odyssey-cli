@@ -1,6 +1,6 @@
 # .goreleaser.yaml
+version: 2
 
-# Build configuration
 builds:
   - env:
       - CGO_ENABLED=0
@@ -12,7 +12,6 @@ builds:
       - amd64
       - arm64
 
-# Archive configuration
 archives:
   - format: tar.gz
     name_template: >-
@@ -23,23 +22,23 @@ archives:
       {{- else }}{{ .Arch }}{{ end }}
       {{- if .Arm }}v{{ .Arm }}{{ end }}
 
-# Release configuration
 release:
-  # Set this to true to mark the release as the "latest" on GitHub
-  make_latest: true
-
-  # Use append mode to add new release notes to existing ones
+  github:
+    owner: your-github-username
+    name: your-repo-name
+  draft: false
+  prerelease: auto
   mode: append
-
-  # You can customize your release notes here
+  make_latest: true
   name_template: "Release {{.Tag}}"
+  header: |
+    ## Release {{.Tag}} ({{ .Date }})
 
-  # Optionally, you can provide a custom release notes template
-  # note_template: "templates/release-notes.md.tmpl"
+    Welcome to this new release!
 
-# Changelog configuration
 changelog:
   sort: asc
+  use: github
   filters:
     exclude:
       - "^docs:"
@@ -47,30 +46,55 @@ changelog:
       - Merge pull request
       - Merge branch
 
-# Checksum configuration
 checksum:
   name_template: "checksums.txt"
+  algorithm: sha256
 
-# Snapshot configuration
 snapshot:
   name_template: "{{ incpatch .Version }}-next"
-# Docker configuration (uncomment if you're using Docker)
+# Uncomment and modify the following sections as needed
+
 # dockers:
 #   - image_templates:
-#     - "yourrepo/yourimage:{{ .Tag }}"
-#     - "yourrepo/yourimage:v{{ .Major }}"
-#     - "yourrepo/yourimage:v{{ .Major }}.{{ .Minor }}"
-#     - "yourrepo/yourimage:latest"
+#     - "your-dockerhub-username/your-image:{{ .Tag }}"
+#     - "your-dockerhub-username/your-image:v{{ .Major }}"
+#     - "your-dockerhub-username/your-image:v{{ .Major }}.{{ .Minor }}"
+#     - "your-dockerhub-username/your-image:latest"
 
-# Homebrew configuration (uncomment if you're distributing via Homebrew)
 # brews:
 #   - name: your-app
 #     tap:
-#       owner: yourusername
+#       owner: your-github-username
 #       name: homebrew-tap
 #     folder: Formula
 #     homepage: "https://example.com/your-app"
 #     description: "Description of your application"
 #     license: "MIT"
 
-# You can add more sections as needed for your specific project
+# signs:
+#   - artifacts: checksum
+
+# nfpms:
+#   - maintainer: Your Name <your@email.com>
+#     description: Software package description
+#     homepage: https://example.com/your-app
+#     license: MIT
+#     formats:
+#       - deb
+#       - rpm
+
+# publishers:
+#   - name: fury.io
+#     ids:
+#       - nfpm
+
+# before:
+#   hooks:
+#     - go mod tidy
+#     - go generate ./...
+
+# after:
+#   hooks:
+#     - ./scripts/post-release.sh
+
+# dist: dist
