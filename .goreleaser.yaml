@@ -1,0 +1,76 @@
+# .goreleaser.yaml
+
+# Build configuration
+builds:
+  - env:
+      - CGO_ENABLED=0
+    goos:
+      - linux
+      - windows
+      - darwin
+    goarch:
+      - amd64
+      - arm64
+
+# Archive configuration
+archives:
+  - format: tar.gz
+    name_template: >-
+      {{ .ProjectName }}_
+      {{- title .Os }}_
+      {{- if eq .Arch "amd64" }}x86_64
+      {{- else if eq .Arch "386" }}i386
+      {{- else }}{{ .Arch }}{{ end }}
+      {{- if .Arm }}v{{ .Arm }}{{ end }}
+
+# Release configuration
+release:
+  # Set this to true to mark the release as the "latest" on GitHub
+  make_latest: true
+
+  # Use append mode to add new release notes to existing ones
+  mode: append
+
+  # You can customize your release notes here
+  name_template: "Release {{.Tag}}"
+
+  # Optionally, you can provide a custom release notes template
+  # note_template: "templates/release-notes.md.tmpl"
+
+# Changelog configuration
+changelog:
+  sort: asc
+  filters:
+    exclude:
+      - "^docs:"
+      - "^test:"
+      - Merge pull request
+      - Merge branch
+
+# Checksum configuration
+checksum:
+  name_template: "checksums.txt"
+
+# Snapshot configuration
+snapshot:
+  name_template: "{{ incpatch .Version }}-next"
+# Docker configuration (uncomment if you're using Docker)
+# dockers:
+#   - image_templates:
+#     - "yourrepo/yourimage:{{ .Tag }}"
+#     - "yourrepo/yourimage:v{{ .Major }}"
+#     - "yourrepo/yourimage:v{{ .Major }}.{{ .Minor }}"
+#     - "yourrepo/yourimage:latest"
+
+# Homebrew configuration (uncomment if you're distributing via Homebrew)
+# brews:
+#   - name: your-app
+#     tap:
+#       owner: yourusername
+#       name: homebrew-tap
+#     folder: Formula
+#     homepage: "https://example.com/your-app"
+#     description: "Description of your application"
+#     license: "MIT"
+
+# You can add more sections as needed for your specific project

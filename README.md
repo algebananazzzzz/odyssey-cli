@@ -8,7 +8,7 @@ odyssey-cli is a command-line interface tool for [brief description of your tool
 
 1. Download the latest release for macOS:
    ```bash
-   curl -OL https://github.com/algebananazzzzz/odyssey-cli/releases/download/latest/odyssey-cli_latest_Darwin_x86_64.tar.gz
+   curl -OLf https://github.com/algebananazzzzz/odyssey-cli/releases/download/latest/odyssey-cli_latest_Darwin_x86_64.tar.gz
    ```
 2. Extract the binary:
    ```bash
@@ -23,11 +23,11 @@ odyssey-cli is a command-line interface tool for [brief description of your tool
 
 1. Download the latest release for Linux:
    ```bash
-   curl -OL https://github.com/algebananazzzzz/odyssey-cli/releases/download/latest/odyssey-cli_latest_Linux_x86_64.tar.gz
+   curl -OLf https://github.com/algebananazzzzz/odyssey-cli/releases/download/latest/odyssey-cli_latest_Linux_386.tar.gz
    ```
 2. Extract the binary:
    ```bash
-   tar -xzvf odyssey-cli_latest_Linux_x86_64.tar.gz
+   tar -xzvf odyssey-cli_latest_Linux_386.tar.gz
    ```
 3. Move the binary to a location in your PATH:
    ```bash
