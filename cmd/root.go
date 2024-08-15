@@ -27,10 +27,12 @@ import (
 	"github.com/spf13/cobra"
 )
 
+var version string
+
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
 	Use:     "odyssey-cli",
-	Version: "0.1.0",
+	Version: version,
 	Short:   "Quickly create and configure Odyssey projects",
 	Long: `Odyssey CLI is a command-line interface designed to streamline the creation and configuration of Odyssey projects. Users can efficiently set up new projects and manage essential settings.
 	`,

@@ -1,6 +1,16 @@
 # .goreleaser.yaml
 version: 2
 
+builds:
+  - env:
+      - CGO_ENABLED=0
+    goos:
+      - linux
+      - windows
+      - darwin
+    ldflags:
+      - -s -w -X main.version={{.Version}}
+
 release:
   make_latest: true
   mode: append
