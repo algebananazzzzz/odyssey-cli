@@ -68,8 +68,7 @@ It looks like the configuration file is missing or not accessible: %s%s
 
 		if err := huh.NewNote().
 			Title("OdysseyCli - Config").
-			Description(fmt.Sprintf(`This command sets up the Terraform backend state and AWS region for your new Odyssey projects.
-The configuration will be saved in %s%s.odyssey/odyssey-config.yml%s in your home directory.
+			Description(fmt.Sprintf(`This command configures the Terraform backend state and AWS region for new Odyssey projects, and saves it in %s%s.odyssey/odyssey-config.yml%s.
 
 `, constants.Bold, constants.Blue, constants.Reset)).Next(true).Run(); err != nil {
 			fmt.Printf("%sError: %s%s\n", constants.Red, err, constants.Reset)

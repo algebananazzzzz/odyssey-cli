@@ -1,6 +1,13 @@
 # .goreleaser.yaml
 version: 2
 
+archives:
+  - format: tar.gz
+    name_template: >-
+      {{ .ProjectName }}_
+      {{- title .Os }}_
+      {{ .Arch }}
+
 builds:
   - env:
       - CGO_ENABLED=0
