@@ -21,7 +21,7 @@ THE SOFTWARE.
 */
 package main
 
-import "github.com/algebananazzzzz/odysseycli/cmd"
+import "github.com/algebananazzzzz/odyssey-cli/cmd"
 
 func main() {
 	cmd.Execute()

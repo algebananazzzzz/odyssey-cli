@@ -1,4 +1,4 @@
-module github.com/algebananazzzzz/odysseycli
+module github.com/algebananazzzzz/odyssey-cli
 
 go 1.21.6
 

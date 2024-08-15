@@ -5,7 +5,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/algebananazzzzz/odysseycli/constants"
+	"github.com/algebananazzzzz/odyssey-cli/constants"
 	"gopkg.in/yaml.v3"
 )
 

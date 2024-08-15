@@ -6,7 +6,7 @@ import (
 	"os/exec"
 	"path/filepath"
 
-	"github.com/algebananazzzzz/odysseycli/constants"
+	"github.com/algebananazzzzz/odyssey-cli/constants"
 )
 
 func CloneProjectFiles(config constants.ProjectConfig) func() error {

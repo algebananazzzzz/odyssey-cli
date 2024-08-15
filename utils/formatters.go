@@ -3,7 +3,7 @@ package utils
 import (
 	"fmt"
 
-	"github.com/algebananazzzzz/odysseycli/constants"
+	"github.com/algebananazzzzz/odyssey-cli/constants"
 )
 
 func FormatNewProjectConfig(config constants.ProjectConfig) string {

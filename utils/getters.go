@@ -1,7 +1,7 @@
 package utils
 
 import (
-	"github.com/algebananazzzzz/odysseycli/constants"
+	"github.com/algebananazzzzz/odyssey-cli/constants"
 )
 
 func GetProjectType(projectType string) string {

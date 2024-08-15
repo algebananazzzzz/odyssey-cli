@@ -8,8 +8,8 @@ import (
 	"strings"
 	"text/template"
 
-	"github.com/algebananazzzzz/odysseycli/constants"
-	"github.com/algebananazzzzz/odysseycli/utils"
+	"github.com/algebananazzzzz/odyssey-cli/constants"
+	"github.com/algebananazzzzz/odyssey-cli/utils"
 )
 
 func CustomizeContentFiles(config constants.ProjectConfig) func() error {

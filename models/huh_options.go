@@ -1,7 +1,7 @@
 package models
 
 import (
-	constants "github.com/algebananazzzzz/odysseycli/constants"
+	constants "github.com/algebananazzzzz/odyssey-cli/constants"
 	"github.com/charmbracelet/huh"
 )
 
