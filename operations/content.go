@@ -39,6 +39,20 @@ func CustomizeContentFiles(config constants.ProjectConfig) func() error {
 			filepath.Join(config.Dir, "infra", "backend.tf"),
 		}
 
+		if err := filepath.Walk(config.Dir, func(path string, info os.FileInfo, err error) error {
+			if err != nil {
+				return err
+			}
+
+			if !info.IsDir() && !strings.HasSuffix(info.Name(), ".tfvars") {
+				templates = append(templates, path)
+			}
+
+			return nil
+		}); err != nil {
+			return err
+		}
+
 		if err := ReplaceTemplateFiles(templates, config); err != nil {
 			return err
 		}
