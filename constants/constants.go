@@ -7,6 +7,7 @@ const CICD_TEMPLATE_DIR = "cicd-templates"
 var PROJECT_TYPES = map[string]string{
 	"simple-static-site": "Simple Frontend Page",
 	"simple-api":         "Simple Backend API",
+	"simple-api-image":   "Simple Backend API (containerized)",
 }
 
 var GITFLOW_STRATEGIES = map[int]string{
